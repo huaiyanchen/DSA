@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 /**
  * @author chy
+ * 目前数组使用一次就不能使用了 ，没有达到复用效果
+ * 将数组使用算法 改进成环形队列 取模：%
  */
 public class ArrayQueueDemo {
     public static void main(String[] args) {
         //测试
         //创建队列
         ArrayQueue queue = new ArrayQueue(3);
-        char key = ' ';
+        char key ;
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
         //输出一个菜单
@@ -66,7 +68,6 @@ class ArrayQueue {
     private int maxSize;
     private int front;
     private int rear;
-
     //存放数据，模拟队列
     private int[] arr;
 

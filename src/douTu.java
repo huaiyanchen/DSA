@@ -11,6 +11,11 @@ public class douTu {
     }
 }
 
+class douTu1 {
+    public static void main(String[] args) {
+        System.out.println(1000/10);
+    }
+}
 class douTu2 {
     public static void main(String[] args) {
         Scanner sa = new Scanner(System.in);
