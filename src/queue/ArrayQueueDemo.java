@@ -9,20 +9,54 @@ public class ArrayQueueDemo {
     public static void main(String[] args) {
         //测试
         //创建队列
-        ArrayQueue arrayQueue = new ArrayQueue(3);
+        ArrayQueue queue = new ArrayQueue(3);
         char key = ' ';
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
         //输出一个菜单
         while (loop) {
             System.out.println("s(show):显示队列");
-            System.out.println("s(exit):退出程序");
-            System.out.println("s(add):添加数据到队列");
-            System.out.println("s(get):从队列取数据");
-            System.out.println("s(head):查看队列头数据");
+            System.out.println("e(exit):退出程序");
+            System.out.println("a(add):添加数据到队列");
+            System.out.println("g(get):从队列取数据");
+            System.out.println("h(head):查看队列头数据");
+            //接收一个字符
             key = scanner.next().charAt(0);
-
+            switch (key) {
+                case 's':
+                    queue.showQueue();
+                    break;
+                case 'a':
+                    System.out.println("输入一个数：");
+                    int va = scanner.nextInt();
+                    queue.addQueue(va);
+                    break;
+                case 'g':
+                    try {
+                        int res = queue.getQueue();
+                        System.out.printf("取出的数是%d\n", res);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'h':
+                    //查看队列头
+                    try {
+                        int res = queue.headQueue();
+                        System.out.printf("队列头数据是%d\n", res);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'e':
+                    scanner.close();
+                    loop = false;
+                    break;
+                default:
+                    break;
+            }
         }
+        System.out.println("程序退出");
     }
 }
 
@@ -77,7 +111,7 @@ class ArrayQueue {
     }
 
     //显示队列数据
-    public void shouQueue() {
+    public void showQueue() {
         if (isEmpty()) {
             System.out.println("队列空");
             return;
